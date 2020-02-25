@@ -6,7 +6,7 @@ primary language for writing the project.
 
 ## Screenshots
 <div style="display:flex;" >
-  <img  src="onboarding.gif" width="19%" >
+  <img  src="onboarding.gif" width="50%" >
 </div>
 
 ## Getting Started
