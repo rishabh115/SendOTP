@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/list_vertical_margin"
+    app:cardElevation="@dimen/list_vertical_margin"
+    app:cardCornerRadius="@dimen/list_vertical_margin">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/list_vertical_margin"
+
+    >
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_contact_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/contacts_text_size"
+        android:typeface="sans"
+        android:textColor="@color/basic_text_color"
+        android:padding="@dimen/text_padding"
+        android:text="John Doe"
+        />
+</LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,58 @@
+[
+    {
+      "id": 1,
+      "first":"John",
+      "last":"Doe",
+      "email": "elmaherring@unq.com",
+      "phone": "+919810153260"
+    },
+    {
+      "id": 2,
+      "first": "Knapp",
+      "last": "Berry",
+      "email": "knappberry@unq.com",
+      "phone": "+919810153260"
+    },
+    {
+      "id": 3,
+      "first": "Bell",
+      "last": "Burgess",
+      "email": "bellburgess@unq.com",
+      "phone": "+919810153260"
+    },
+    {
+      "id": 4,
+      "first": "Hobbs",
+      "last": "Ferrell",
+      "email": "hobbsferrell@unq.com",
+      "phone": "+919810153260"
+    },
+    {
+      "id": 5,
+      "first": "Blake",
+      "last": "Shelton",
+      "email": "blakeshelton@unq.com",
+      "phone": "+919810153260"
+    },
+    {
+      "id": 6,
+      "first": "Rishabh",
+      "last": "M",
+      "email": "rishabhmaurya.maurya@gmail.com",
+      "phone": "+919140091883"
+    },
+    {
+      "id": 7,
+      "first": "Rob",
+      "last": "Maddison",
+      "email": "robbie@redbull.com",
+      "phone": "+919810153260"
+    },
+    {
+      "id": 8,
+      "first": "Stefano",
+      "last": "Tsitsipas",
+      "email": "stefano@wtf.com",
+      "phone": "+919810153260"
+    }
+]

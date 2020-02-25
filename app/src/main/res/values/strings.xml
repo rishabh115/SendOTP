@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SendOTP</string>
+    <string name="tab_contacts_title">Contacts</string>
+    <string name="tab_history_title">Message History</string>
+    <string name="placeholder_otp_msg">Hi. Your OTP is: %d</string>
+    <string name="send_message">Send Message</string>
+    <string name="name_header">Name</string>
+    <string name="email_header">Email</string>
+    <string name="phone_header">Phone no.</string>
+    <string name="contact_details">Contact details</string>
+    <string name="placeholder_to_contact">To: %s</string>
+    <string name="send_msg_dialog_title">Send OTP Message</string>
+</resources>
