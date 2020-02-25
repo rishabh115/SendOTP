@@ -4,6 +4,11 @@ SendOTP is an application that uses Nexmo under the hoods to send OTP, currently
 to any contacts. It uses MVVM architecture as recommended by Google. Kotlin has been used as the
 primary language for writing the project.
 
+## Screenshots
+<div style="display:flex;" >
+  <img  src="onboarding.gif" width="19%" >
+</div>
+
 ## Getting Started
 
 _Follow these instructions to build and run the project_
