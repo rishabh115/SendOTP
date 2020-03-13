@@ -7,9 +7,8 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 
 /**Client responsible for creating Sms service instance.
  */
-class ApiClient {
-    companion object {
-        @JvmStatic
+object ServiceGenerator {
+
         fun retrofit():Retrofit{
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
@@ -17,9 +16,8 @@ class ApiClient {
                 .build()
             return retrofit
         }
-        @JvmStatic
-        fun createSmsService(): SmsService{
-            return retrofit().create(SmsService::class.java)
+
+        fun <S> createService(serviceClass: Class<S>): S{
+            return retrofit().create(serviceClass)
         }
-    }
 }

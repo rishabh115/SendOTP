@@ -1,6 +1,7 @@
 package com.example.sendotp.ui.details
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,22 +19,27 @@ import com.example.sendotp.data.model.SmsRequest
 import com.example.sendotp.util.formatPhoneNumber
 import com.example.sendotp.util.getRandomNumber
 import com.google.android.material.textfield.TextInputEditText
+import javax.inject.Inject
 
 /**
  *  Dialog fragment for sending OTP to the current contact.
  */
 class SendMsgDialog: DialogFragment() {
 
-    private lateinit var detailsViewModel: DetailsViewModel
+    @Inject
+    lateinit var detailsViewModel: DetailsViewModel
     private lateinit var currContact: Contact
     private lateinit var etMsg: TextInputEditText
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (activity as ContactDetailsActivity).detailsComponent.inject(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar_MinWidth)
         currContact = arguments?.getParcelable<Contact>(EXTRA_CONTACT)!!
-        detailsViewModel =  ViewModelProviders.of(activity!!).get(DetailsViewModel::class.java)
     }
 
     override fun onCreateView(

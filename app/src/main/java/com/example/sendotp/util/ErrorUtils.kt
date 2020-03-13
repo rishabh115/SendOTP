@@ -1,8 +1,7 @@
 package com.example.sendotp.util
 
-import com.example.sendotp.api.ApiClient
+import com.example.sendotp.api.ServiceGenerator
 import com.example.sendotp.data.model.ApiError
-import retrofit2.Converter
 import retrofit2.Response
 import java.lang.Exception
 
@@ -11,7 +10,7 @@ import java.lang.Exception
  */
 object ErrorUtils {
     fun parseError(response: Response<*>): ApiError?{
-        val converter = ApiClient.retrofit()
+        val converter = ServiceGenerator.retrofit()
             .responseBodyConverter<ApiError>(ApiError::class.java,
             arrayOfNulls<Annotation>(0))
         var error:ApiError?=null

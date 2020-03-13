@@ -8,19 +8,18 @@ import com.example.sendotp.data.model.Contact
 import com.example.sendotp.data.model.SmsHistory
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import javax.inject.Inject
 
 /**
  * Viewmodel for home activity and its fragments.
  */
-class HomeViewModel(application: Application) : AndroidViewModel(application) {
+class HomeViewModel @Inject constructor(val app:Application, smsDatabase: SmsDatabase) {
 
     private val smsRepository: SmsRepository
-    private val app: Application = application
     private val _contacts = MutableLiveData<List<Contact>>()
 
     init {
-        val smsHistoryDao = SmsDatabase.getDatabase(application).smsDao()
-        smsRepository = SmsRepository(smsHistoryDao)
+        smsRepository = SmsRepository(smsDatabase.smsDao())
     }
 
    fun getContacts():LiveData<List<Contact>>{

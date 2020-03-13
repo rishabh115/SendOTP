@@ -7,14 +7,12 @@ import androidx.lifecycle.AndroidViewModel
 import com.example.sendotp.FAILURE_MSG
 import com.example.sendotp.FROM
 import com.example.sendotp.PHONE_FORMAT_WRONG_MSG
-import com.example.sendotp.api.ApiClient
 import com.example.sendotp.api.SmsService
 import com.example.sendotp.data.SmsDatabase
 import com.example.sendotp.data.SmsRepository
 import com.example.sendotp.data.model.SmsHistory
 import com.example.sendotp.data.model.SmsRequest
 import com.example.sendotp.data.model.SmsResponse
-import com.example.sendotp.util.ErrorUtils
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,20 +20,21 @@ import retrofit2.Response
 import java.util.*
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
+import javax.inject.Inject
 
 /**
  * ViewModel for Contact Details activity.
  * Contains method for sending sms and adding successfully sent msg to local db.
  */
-class DetailsViewModel(application: Application) : AndroidViewModel(application) {
+class DetailsViewModel @Inject constructor(smsDatabase: SmsDatabase,val smsService: SmsService){
     private val smsRepository: SmsRepository
-    private val smsService: SmsService
+
     private val executor: Executor
 
     init {
-        val smsHistoryDao = SmsDatabase.getDatabase(application).smsDao()
+        val smsHistoryDao = smsDatabase.smsDao()
         smsRepository = SmsRepository(smsHistoryDao)
-        smsService = ApiClient.createSmsService()
+//      smsService = ServiceGenerator.createService(SmsService::class.java)
         executor = Executors.newFixedThreadPool(5)
     }
 

@@ -1,5 +1,6 @@
 package com.example.sendotp.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,17 +12,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sendotp.R
 import com.example.sendotp.base.BaseFragment
 import com.example.sendotp.ui.home.adapters.ContactsAdapter
+import javax.inject.Inject
 
 /**
  * Fragment for contacts tab.
  */
 class ContactsFragment : BaseFragment(){
+    @Inject
+    lateinit var homeViewModel: HomeViewModel
 
-    private lateinit var homeViewModel: HomeViewModel
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (activity as HomeActivity).homeComponent.inject(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        homeViewModel =  ViewModelProviders.of(this).get(HomeViewModel::class.java)
-
     }
     override fun onCreateView(
         inflater: LayoutInflater,

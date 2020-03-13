@@ -1,8 +1,6 @@
 package com.example.sendotp.data
 
 import androidx.lifecycle.LiveData
-import com.example.sendotp.api.ApiClient
-import com.example.sendotp.api.SmsService
 import com.example.sendotp.data.model.SmsHistory
 
 /**

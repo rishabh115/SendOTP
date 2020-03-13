@@ -12,17 +12,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sendotp.R
 import com.example.sendotp.base.BaseFragment
 import com.example.sendotp.ui.home.adapters.MsgHistoryAdapter
+import javax.inject.Inject
 
 /**
  * Fragment fot message history tab.
  */
 class MsgHistoryFragment : BaseFragment(){
 
-    private lateinit var homeViewModel: HomeViewModel
+    @Inject
+    lateinit var homeViewModel: HomeViewModel
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (activity as HomeActivity).homeComponent.inject(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        homeViewModel =  ViewModelProviders.of(this).get(HomeViewModel::class.java)
-
     }
     override fun onCreateView(
         inflater: LayoutInflater,

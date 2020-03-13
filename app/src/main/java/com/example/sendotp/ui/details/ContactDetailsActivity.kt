@@ -19,8 +19,10 @@ class ContactDetailsActivity: BaseActivity(), View.OnClickListener, Callback {
 
     private lateinit var contact: Contact
     private lateinit var progress: ProgressDialog
+    lateinit var detailsComponent: DetailsComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        detailsComponent = (application as SendOTPApp).appComponent.detailsComponent().create()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact_details)
         setTitle(getString(R.string.contact_details))
