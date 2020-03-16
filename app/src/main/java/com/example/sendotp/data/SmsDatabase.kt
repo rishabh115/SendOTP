@@ -24,13 +24,22 @@ abstract class SmsDatabase : RoomDatabase() {
             if (INSTANCE==null){
                 synchronized(this){
                     if (INSTANCE==null){
-                        INSTANCE = Room.databaseBuilder(context.applicationContext,
-                            SmsDatabase::class.java,"sms_database")
-                            .build()
+                        INSTANCE = create(context, false)
                     }
                 }
             }
             return INSTANCE!!
+        }
+
+        fun create(context: Context, memoryOnly: Boolean): SmsDatabase{
+           val builder: RoomDatabase.Builder<SmsDatabase>
+           if (memoryOnly){
+               builder = Room.inMemoryDatabaseBuilder(context, SmsDatabase::class.java)
+           } else{
+               builder = Room.databaseBuilder(context.applicationContext,
+                   SmsDatabase::class.java,"sms_database")
+           }
+          return builder.build()
         }
     }
 }
