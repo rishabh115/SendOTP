@@ -1,24 +1,29 @@
-package com.example.sendotp.data
+package com.example.sendotp
 
 import androidx.test.InstrumentationRegistry
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.runner.AndroidJUnit4
+import com.example.sendotp.data.SmsDatabase
+import com.example.sendotp.data.SmsHistoryDao
 import com.example.sendotp.data.model.SmsHistory
 import com.example.sendotp.util.blockingObserve
 import junit.framework.Assert.*
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
+
 import java.util.*
 
-@RunWith(AndroidJUnit4::class)
 class SmsTests {
     lateinit var db: SmsDatabase
     lateinit var smsDao: SmsHistoryDao
 
     @Before
     fun setUp(){
-      db = SmsDatabase.create(InstrumentationRegistry.getContext(), true)
+      db = SmsDatabase.create(
+          getApplicationContext(),
+          true
+      )
       smsDao = db.smsDao()
     }
 
